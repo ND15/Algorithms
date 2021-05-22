@@ -73,6 +73,7 @@ int RodCut_V2(int Price[], int length, int Table[])
 
 int main()
 {
+	//initialize array
 	int P[6] = { 0, 1,5,8,9,10 };
 	cout << init_Rod_Cut(P, 5) << endl;
 	return 0;
