@@ -71,10 +71,32 @@ int RodCut_V2(int Price[], int length, int Table[])
 	return Table[length];
 }
 
+/*
+iterative bottom up approach
+*/
+int Rod_Cut_V3(int Price[], int length)
+{
+	int *Table = new int[length];
+	Table[0] = 0;
+	for (int j = 1; j <= length; j++)
+	{
+		int temp = minVl;
+		for (int i = 1; i <= j; i++)
+		{
+			temp = Price[i] + Table[j - i];
+			if (temp > Table[j])
+			{
+				Table[j] = temp;
+			}
+		}
+	}
+	return Table[length];
+}
+
+
 int main()
 {
-	//initialize array
 	int P[6] = { 0, 1,5,8,9,10 };
-	cout << init_Rod_Cut(P, 5) << endl;
+	cout << Rod_Cut_V3(P, 5) << endl;
 	return 0;
 }
