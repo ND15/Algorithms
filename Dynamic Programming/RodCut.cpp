@@ -87,7 +87,7 @@ int Rod_Cut_V3(int Price[], int length)
 			if (temp > Table[j])
 			{
 				Table[j] = temp;
-			}
+			} 
 		}
 	}
 	return Table[length];
