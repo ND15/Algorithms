@@ -20,7 +20,7 @@ void calculatePath(int A[][9], int *Cost, int *Dest, int n)
 
 int main(int argc, char const *argv[])
 {
-	int C[9][9] = { {0,0,0,0,0,0,0,0,0},
+	int A[9][9] = { {0,0,0,0,0,0,0,0,0},
 					{0,0,2,3,4,0,0,0,0},
 					{0,0,0,0,0,6,3,0,0},
 					{0,0,0,0,0,5,0,4,0},
@@ -31,18 +31,18 @@ int main(int argc, char const *argv[])
 					{0,0,0,0,0,0,0,0,0} };
 	int *Cost = new int[9];
 	Cost[8] = 0;
-	int *D = new int[9];
-	calculatePath(C, Cost, D, 9);
-	int *P = new int[4];
-	P[1] = 1;
+	int *Dest = new int[9];
+	calculatePath(A, Cost, Dest, 9);
+	int *Path = new int[4];
+	Path[1] = 1;
 	for (int i = 2; i < 4; i++)
 	{
-		P[i] = D[P[i - 1]];
+		Path[i] = Dest[Path[i - 1]];
 	}
 
 	for (int i = 1; i < 4; i++)
 	{
-		cout << P[i] << " ";
+		cout << Path[i] << " ";
 	}
 	return 0;
 }
